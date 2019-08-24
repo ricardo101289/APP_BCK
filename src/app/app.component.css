@@ -1,0 +1,13 @@
+.centerLogin{
+    height: -webkit-fill-available;
+    /* align-items: start; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contentForm{
+    width: 50%;
+}
+.warningText{
+    margin-top: 2%;
+}
