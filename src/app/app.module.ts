@@ -4,14 +4,20 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import {ApiService} from '../services/api.service'
 import { HttpModule } from '@angular/http';
+import { LoginComponent } from './login/login.component';
+import { RouteRoutingModule } from '../route/route-routing.module';
+import { ClientProfileComponent } from './client-profile/client-profile.component'
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    ClientProfileComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouteRoutingModule
   ],
   providers: [
     ApiService,

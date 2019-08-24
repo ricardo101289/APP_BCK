@@ -1,0 +1,23 @@
+<div class="container centerLogin">
+  <div class="contentForm">
+    <h1>Login API (via Swagger)</h1>
+      <form (ngSubmit)="login()">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <div *ngIf="!msgError && !email"  class="alert alert-danger warningText" role="alert">
+                Este campo es necesario.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div *ngIf="!msgError && !password"  class="alert alert-danger warningText" role="alert">
+              Este campo es necesario.
+          </div>
+          <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+        </form>
+  </div>
+
+</div>

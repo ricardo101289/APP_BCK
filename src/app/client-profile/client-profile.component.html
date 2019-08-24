@@ -1,0 +1,27 @@
+<!-- <div>
+    <ul class="list-group">
+        <li class="list-group-item">Cras justo odio</li>
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Morbi leo risus</li>
+        <li class="list-group-item">Porta ac consectetur ac</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+      </ul>
+</div> -->
+
+
+<div class="container centerLogin">
+    <div class="contentForm" *ngIf="profile">
+      <h1>Login API (via Swagger)</h1>
+
+      <ul class="list-group">
+          <li class="list-group-item">bookingId: {{profile[0].bookingId}}</li>
+          <li class="list-group-item">Cliente: {{profile[0].tutenUserClient.firstName}} {{profile[0].tutenUserClient.lastName}}</li>
+          <li class="list-group-item">Fecha de Creación: {{profile[0].bookingTime | date}}</li>
+          <li class="list-group-item">Dirección {{profile[0].locationId.streetAddress}}</li>
+          <li class="list-group-item">Precio: {{profile[0].bookingPrice}}</li>
+        </ul>
+
+
+    </div>
+  
+  </div>
