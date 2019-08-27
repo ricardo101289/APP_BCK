@@ -1,27 +1,23 @@
-<!-- <div>
-    <ul class="list-group">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Morbi leo risus</li>
-        <li class="list-group-item">Porta ac consectetur ac</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-      </ul>
-</div> -->
-
-
+<div class="btnClose">
+    <button type="button" class="btn btn-danger" (click) ="closeSesion()">Cerrar Sesión</button>
+</div>
 <div class="container centerLogin">
     <div class="contentForm" *ngIf="profile">
-      <h1>Login API (via Swagger)</h1>
-
-      <ul class="list-group">
-          <li class="list-group-item">bookingId: {{profile[0].bookingId}}</li>
-          <li class="list-group-item">Cliente: {{profile[0].tutenUserClient.firstName}} {{profile[0].tutenUserClient.lastName}}</li>
-          <li class="list-group-item">Fecha de Creación: {{profile[0].bookingTime | date}}</li>
-          <li class="list-group-item">Dirección {{profile[0].locationId.streetAddress}}</li>
-          <li class="list-group-item">Precio: {{profile[0].bookingPrice}}</li>
-        </ul>
-
-
+      <h1>Profile API (via Swagger)</h1>
+      <div class="input-group mb-3">
+        <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Filtro por: bookingId/bookingPrice" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+      <div *ngFor="let profile of profile | grdFilter: {bookingId: searchText, bookingPrice:searchText}; let i=index;" class="card" style="margin-bottom: 5%;">
+          <div class="card-header">
+              Cliente: {{profile.bookingId}}
+          </div>
+          <ul class="list-group list-group-flush">
+              <li class="list-group-item">bookingId: {{profile.bookingId}}</li>
+              <li class="list-group-item">Cliente: {{profile.tutenUserClient.firstName}} {{profile.tutenUserClient.lastName}}</li>
+              <li class="list-group-item">Fecha de Creación: {{profile.bookingTime | date}}</li>
+              <li class="list-group-item">Dirección {{profile.locationId.streetAddress}}</li>
+              <li class="list-group-item">Precio: {{profile.bookingPrice}}</li>
+          </ul>
+        </div>
     </div>
-  
   </div>

@@ -7,17 +7,21 @@ import { HttpModule } from '@angular/http';
 import { LoginComponent } from './login/login.component';
 import { RouteRoutingModule } from '../route/route-routing.module';
 import { ClientProfileComponent } from './client-profile/client-profile.component'
+import { GrdFilterPipe } from './client-profile/client-profile.component';
+import { NgxLoadingModule } from 'ngx-loading';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ClientProfileComponent
+    ClientProfileComponent,
+    GrdFilterPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouteRoutingModule
+    RouteRoutingModule,
+    NgxLoadingModule.forRoot({})
   ],
   providers: [
     ApiService,

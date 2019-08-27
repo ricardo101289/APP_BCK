@@ -5,6 +5,7 @@ import { Http, Response, Headers, RequestOptions } from "@angular/http";
   providedIn: "root"
 })
 export class ApiService {
+  loading = false;
   BASE_URL = "https://dev.tuten.cl:443/TutenREST/rest/user/";
   constructor(public http: Http) {}
   app = "APP_BCK";

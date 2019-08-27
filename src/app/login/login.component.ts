@@ -1,43 +1,42 @@
-import { Component, OnInit } from '@angular/core';
-import {ApiService} from '../../services/api.service'
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { ApiService } from "../../services/api.service";
+import { Router } from "@angular/router";
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.css"]
 })
 export class LoginComponent implements OnInit {
-
-  email : string;
-  password : string;
-  msgError : boolean = true;
-  constructor(
-    private api : ApiService,
-    private router: Router,
-  ){
-
-  }
+  email: string;
+  password: string;
+  msgError: boolean = true;
+  constructor(private api: ApiService, private router: Router) {}
   ngOnInit() {
-    if (localStorage.getItem('token_user') !== null ) {
-      this.router.navigate(['/profile']);
+    if (localStorage.getItem("token_user") !== null) {
+      this.router.navigate(["/profile"]);
     }
   }
 
-  login(){
+  login() {
     if (this.email && this.password) {
-    this.api.login(this.email, this.password).then(res =>{
-      let response : any = res;
-      localStorage.setItem('token_user', response.sessionTokenBck);
-      localStorage.setItem('email', this.email);
-    }).catch(err =>{
-      console.log('====================================');
-      console.log(err);
-      console.log('====================================');
-    })
-
+      this.api.loading = true;
+      this.api
+        .login(this.email, this.password)
+        .then(res => {
+          let response: any = res;
+          localStorage.setItem("token_user", response.sessionTokenBck);
+          localStorage.setItem("email", this.email);
+          this.api.loading = false;
+          this.router.navigate(["/profile"]);
+        })
+        .catch(err => {
+          this.api.loading = false;
+          console.log("====================================");
+          console.log(err);
+          console.log("====================================");
+        });
     } else {
       this.msgError = false;
     }
   }
-
 }
