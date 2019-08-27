@@ -1,9 +1,13 @@
-# APP_BCK
+## Stack
+
+Angular 6
+
+bootstrap 4
+
+## APP_BCK
+
 Desarrollar un site implemente un acceso login, haciendo uso de la información contenida en la especificación de la API (via Swagger) ubicada en: https://dev.tuten.cl/TutenREST/#!/user/login
 
-# APPBCK
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.2.
 
 ## Instalación
 
